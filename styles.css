@@ -89,6 +89,18 @@ button:focus-visible {
   box-shadow: 0 4px 12px rgba(12, 90, 72, 0.2);
 }
 
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.5rem;
+}
+
 .site-nav {
   display: flex;
   gap: 1.35rem;
@@ -110,7 +122,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4.5vw, 4.25rem);
+  font-size: clamp(1.8rem, 5vw, 4rem);
   margin-top: 0.95rem;
   letter-spacing: -0.03em;
 }
@@ -533,18 +545,34 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 
+  .nav-toggle-label {
+    display: block;
+  }
+
   .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: var(--shadow-medium);
     display: none;
+  }
+
+  .nav-toggle:checked ~ .site-nav {
+    display: flex;
   }
 }
 
 @media (max-width: 700px) {
   .section {
-    padding: 3.5rem 0;
+    padding: 2.5rem 0;
   }
 
   .hero {
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
 
   .container {
@@ -554,5 +582,10 @@ p {
   .cta-row .btn {
     width: 100%;
     text-align: center;
+    min-height: 48px;
+  }
+
+  .flow-card {
+    padding: 1.5rem;
   }
 }
